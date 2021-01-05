@@ -1,4 +1,4 @@
-package com.unittesting.shoppingservice;
+package unittest.shoppingservice;
 
 import java.util.ArrayList;
 import java.util.Iterator;

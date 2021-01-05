@@ -1,4 +1,4 @@
-package com.unittesting.emailservice;
+package unittest.emailservice;
 
 public enum Format {
     TEXT_ONLY,

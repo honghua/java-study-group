@@ -1,4 +1,4 @@
-package com.unittesting.shoppingservice;
+package unittest.shoppingservice;
 
 import com.google.auto.value.AutoValue;
 

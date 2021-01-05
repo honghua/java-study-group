@@ -1,7 +1,4 @@
-package com.unittesting.shoppingservice;
-
-import com.unittesting.shoppingservice.Cart;
-import com.unittesting.shoppingservice.Item;
+package unittest.shoppingservice;
 
 import javax.naming.AuthenticationException;
 import java.util.Map;

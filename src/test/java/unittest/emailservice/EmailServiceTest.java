@@ -1,11 +1,16 @@
-package com.unittesting.emailservice;
+package unittest.emailservice;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.*;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import static org.junit.Assert.*;
+import static com.google.common.truth.Truth.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class EmailServiceTest {
@@ -50,7 +55,7 @@ public class EmailServiceTest {
 
     @Test
     public void whenServiceRunning_expectUpResponse() {
-        Mockito.when(platform.getServiceStatus()).thenReturn("OK");
+        when(platform.getServiceStatus()).thenReturn("OK");
 
         ServiceStatus serviceStatus = emailService.checkServiceStatus();
 
@@ -59,7 +64,7 @@ public class EmailServiceTest {
 
     @Test
     public void whenServiceNotRunning_expectDownResponse() {
-        Mockito.when(platform.getServiceStatus()).thenReturn("Error");
+        when(platform.getServiceStatus()).thenReturn("Error");
 
         ServiceStatus serviceStatus = emailService.checkServiceStatus();
 
@@ -69,7 +74,7 @@ public class EmailServiceTest {
     @Test
     public void whenUsingArgumentMatcherForValidCredentials_expectTrue() {
         Credentials credentials = new Credentials("baeldung", "correct_password", "correct_key");
-        Mockito.when(platform.authenticate(Mockito.eq(credentials))).thenReturn(AuthenticationStatus.AUTHENTICATED);
+        when(platform.authenticate(Mockito.eq(credentials))).thenReturn(AuthenticationStatus.AUTHENTICATED);
 
         assertTrue(emailService.authenticatedSuccessfully(credentials));
     }
@@ -77,17 +82,30 @@ public class EmailServiceTest {
     @Test
     public void whenUsingArgumentCaptorForValidCredentials_expectTrue() {
         Credentials credentials = new Credentials("baeldung", "correct_password", "correct_key");
-        Mockito.when(platform.authenticate(credentialsCaptor.capture())).thenReturn(AuthenticationStatus.AUTHENTICATED);
+        when(platform.authenticate(credentialsCaptor.capture())).thenReturn(AuthenticationStatus.AUTHENTICATED);
 
         assertTrue(emailService.authenticatedSuccessfully(credentials));
-        assertEquals(credentials, credentialsCaptor.getValue());
+        assertThat(credentialsCaptor.getValue()).isEqualTo(credentials);
     }
 
     @Test
     public void whenNotAuthenticated_expectFalse() {
-        Credentials credentials = new Credentials("baeldung", "incorrect_password", "incorrect_key");
-        Mockito.when(platform.authenticate(Mockito.eq(credentials))).thenReturn(AuthenticationStatus.NOT_AUTHENTICATED);
+        Credentials credentials = new Credentials("baeldung", "incorrect_password",
+                "incorrect_key");
+        when(platform.authenticate(Mockito.eq(credentials))).thenReturn(AuthenticationStatus.NOT_AUTHENTICATED);
 
         assertFalse(emailService.authenticatedSuccessfully(credentials));
+    }
+
+    @Test
+    public void invalidToAddress_throwException() {
+        String to = null;
+        String subject = "Using ArgumentCaptor";
+        String body = "<html><body>Hey, let'use ArgumentCaptor</body></html>";
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> emailService.send(to, subject, body, false));
+
+        assertThat(exception.getMessage()).contains("address is not valid");
     }
 }

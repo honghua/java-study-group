@@ -1,4 +1,4 @@
-package com.unittesting.shoppingservice;
+package unittest.shoppingservice;
 
 import javax.naming.AuthenticationException;
 import java.util.Iterator;

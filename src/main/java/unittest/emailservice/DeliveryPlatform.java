@@ -1,4 +1,4 @@
-package com.unittesting.emailservice;
+package unittest.emailservice;
 
 public interface DeliveryPlatform {
 

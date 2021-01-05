@@ -1,4 +1,4 @@
-package com.unittesting.shoppingservice;
+package unittest.shoppingservice;
 
 public class CheckoutServiceImpl implements CheckoutService {
     @Override

@@ -1,4 +1,4 @@
-package com.unittesting.emailservice;
+package unittest.emailservice;
 
 public class EmailService {
 
@@ -9,6 +9,9 @@ public class EmailService {
     }
 
     public void send(String to, String subject, String body, boolean html) {
+        if (to == null) {
+            throw new IllegalArgumentException("To address is not valid!");
+        }
         Format format = Format.TEXT_ONLY;
         if (html) {
             format = Format.HTML;

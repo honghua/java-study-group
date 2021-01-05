@@ -1,9 +1,5 @@
-package com.unittesting.shoppingservice;
+package unittest.shoppingservice;
 
-import com.unittesting.shoppingservice.Cart;
-import com.unittesting.shoppingservice.Item;
-import com.unittesting.shoppingservice.ShoppingClient;
-import com.unittesting.shoppingservice.ShoppingService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.*;
