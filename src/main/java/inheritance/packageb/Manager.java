@@ -26,3 +26,5 @@ class Manager extends Employee {
         System.out.println(salary);       // accessible
     }
 }
+
+
