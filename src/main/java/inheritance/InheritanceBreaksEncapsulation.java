@@ -1,8 +1,7 @@
 package inheritance;
 
-import com.sun.tools.javac.util.List;
-import java.util.Collection;
-import java.util.HashSet;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class InheritanceBreaksEncapsulation {
     public static void main(String[] args) {
@@ -12,7 +11,7 @@ public class InheritanceBreaksEncapsulation {
 
         // example-2: from Effective Java
         InstrumentedHashSet<String> s = new InstrumentedHashSet<>();
-        s.addAll(List.of("Snap", "Crackle", "Pop"));
+        s.addAll(Arrays.asList("Snap", "Crackle", "Pop"));
         System.out.println(s.getAddCount());
     }
 }

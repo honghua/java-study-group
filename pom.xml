@@ -41,20 +41,29 @@
         <dependency>
             <groupId>com.google.inject</groupId>
             <artifactId>guice</artifactId>
-            <version>4.0</version>
+            <version>4.1.0</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.google.inject.extensions/guice-multibindings -->
         <dependency>
             <groupId>com.google.inject.extensions</groupId>
             <artifactId>guice-multibindings</artifactId>
-            <version>4.0</version>
+            <version>4.1.0</version>
         </dependency>
 
         <dependency>
             <groupId>com.google.inject.extensions</groupId>
             <artifactId>guice-assistedinject</artifactId>
-            <version>4.0</version>
+            <version>4.1.0</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.google.inject.extensions/guice-testlib -->
+        <dependency>
+            <groupId>com.google.inject.extensions</groupId>
+            <artifactId>guice-testlib</artifactId>
+            <version>4.1.0</version>
+            <scope>test</scope>
+        </dependency>
+
 
         <!-- https://mvnrepository.com/artifact/com.google.inject.extensions/guice-grapher -->
         <dependency>

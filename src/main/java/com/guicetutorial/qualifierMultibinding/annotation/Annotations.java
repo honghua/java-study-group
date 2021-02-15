@@ -5,10 +5,13 @@ import java.lang.annotation.*;
 
 public class Annotations {
 
+//    @Qualifier
+//    @Retention(RetentionPolicy.RUNTIME)
+//    public @interface MyAnnotation {
+//    }
+
     @Qualifier
     @Retention(RetentionPolicy.RUNTIME)
-    @Target({ElementType.METHOD, ElementType.FIELD})
-    public @interface MyAnnotation {
-    }
-
+    public @interface QuanAnnotation{}
 }
+

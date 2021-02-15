@@ -1,16 +1,16 @@
 package com.guicetutorial.singleImpl;
 
 import com.google.inject.Inject;
-import javax.annotation.Nullable;
 
-public class DinningService {
-
-    private Food food;
+public class LuxuryDinningService {
 
     @Inject
-    public DinningService(Food food) {
-        this.food = food;
-    }
+    private Food food;
+
+//    @Inject
+//    public DinningService(@MyAnnotations.BasicDinning Food food) {
+//        this.food = food;
+//    }
 
     public String getFood() {
         return food.getName();
