@@ -6,6 +6,7 @@ import com.google.inject.testing.fieldbinder.Bind;
 import com.google.inject.testing.fieldbinder.BoundFieldModule;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.mockito.Mock;
@@ -19,6 +20,7 @@ import static org.mockito.Mockito.when;
 public class AppTestJunit4RunnerWithMockAnnotation {
     // @Rule: initialize all @Mock annotated objects: this is equivalent to
     // DinningService dinningService = mock(DinningService.class);
+    // No need to add this rule if running with MockitoJunitRunner.
     @Rule
     public final MockitoRule mockitoRule = MockitoJUnit.rule();
 
@@ -27,6 +29,7 @@ public class AppTestJunit4RunnerWithMockAnnotation {
 
     @Bind @Mock
     DinningService dinningService;
+
 
     @Test
     public void printFood() {
