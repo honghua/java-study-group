@@ -16,6 +16,8 @@ class NyPizza extends Pizza {
 
 class Main {
     public static void main(String[] args) {
-        NyPizza pizza = (NyPizza) new NyPizza.Builder().addTopping(Pizza.Topping.MUSHROOM).build();
+        System.out.println(new NyPizza.Builder().addTopping(Pizza.Topping.MUSHROOM).getClass());
+//        NyPizza pizza =
+        System.out.println(new NyPizza.Builder().addTopping(Pizza.Topping.MUSHROOM).build().getClass());
     }
 }
