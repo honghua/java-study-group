@@ -1,6 +1,5 @@
 package inheritance;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class InheritanceBreaksEncapsulation {

@@ -11,6 +11,11 @@ abstract class ElementWithBuilder {
         return new AutoValue_ElementWithBuilder.Builder();
     }
 
+    /** Creates a new {@code ElementWithBuilder} instance with only {@code rowVal} set. */
+    static ElementWithBuilder createWithRow(int rowVal) {
+        return builder().setRow(rowVal).build();
+    }
+
     @AutoValue.Builder
     abstract static class Builder {
         abstract Builder setRow(int val);
